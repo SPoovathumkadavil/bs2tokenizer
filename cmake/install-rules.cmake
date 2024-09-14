@@ -21,7 +21,7 @@ install(
 )
 
 install(
-    TARGETS tokenizer_tokenizer
+    TARGETS pbtokenizer_tokenizer
     EXPORT tokenizerTargets
     RUNTIME #
     COMPONENT tokenizer_Runtime
