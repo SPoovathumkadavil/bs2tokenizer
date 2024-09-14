@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 include(cmake/prelude.cmake)
 
 project(
-    tokenizer
+    pbtokenizer
     VERSION 0.1.0
     DESCRIPTION "Short description"
     HOMEPAGE_URL "https://example.com/"
