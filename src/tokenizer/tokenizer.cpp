@@ -81,7 +81,7 @@
   #include "tokenizer.h"
   #include "tokenizer_i.c"
 #endif
-#ifdef LINUX
+#ifdef linux
   #include <unistd.h>
   #include <stdio.h>
   #include <stdint.h>
@@ -98,6 +98,7 @@
 #include "tokenizer/tokenizer.hpp"
 
 using namespace t_vars;
+using namespace std;
 
 /*------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------*/

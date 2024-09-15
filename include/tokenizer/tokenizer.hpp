@@ -16,22 +16,17 @@ public:
 
   /*Define forward declarations*/
 
-  /*---Published Library Functions---*/
-#ifdef __APPLE_CC__
-
-    STDAPI TestRecAlignment(TModuleRec *Rec);
-    STDAPI Version(void);
-    #if defined(DevDebug)
-      STDAPI GetVariableItems(byte *VBitCount, byte *VBases);
-      STDAPI GetSymbolTableItem(TSymbolTable *Sym, int Idx);
-      STDAPI GetUndefSymbolTableItem(TUndefSymbolTable *Sym, int Idx);
-      STDAPI GetElementListItem(TElementList *Ele, int Idx);
-      STDAPI GetGosubCount(void);
-    #endif
-    STDAPI Compile(TModuleRec *Rec, char *Src, bool DirectivesOnly, bool ParseStampDirective, TSrcTokReference *Ref);
-    STDAPI GetReservedWords(TModuleRec *Rec, char *Src);
-
-#endif
+  STDAPI TestRecAlignment(TModuleRec *Rec);
+  STDAPI Version(void);
+  #if defined(DevDebug)
+    STDAPI GetVariableItems(byte *VBitCount, byte *VBases);
+    STDAPI GetSymbolTableItem(TSymbolTable *Sym, int Idx);
+    STDAPI GetUndefSymbolTableItem(TUndefSymbolTable *Sym, int Idx);
+    STDAPI GetElementListItem(TElementList *Ele, int Idx);
+    STDAPI GetGosubCount(void);
+  #endif
+  STDAPI Compile(TModuleRec *Rec, char *Src, bool DirectivesOnly, bool ParseStampDirective, TSrcTokReference *Ref);
+  STDAPI GetReservedWords(TModuleRec *Rec, char *Src);
 
   /*---Misc---*/
   byte       ResWordTypeID(TElementType ElementType);

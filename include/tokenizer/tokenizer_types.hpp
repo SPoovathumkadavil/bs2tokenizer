@@ -25,7 +25,7 @@
 #ifndef __TOKENIZER_TYPES_H_
 #define __TOKENIZER_TYPES_H_
 
-#if defined(LINUX) || defined(__APPLE_CC__) // For some reason, limits.h is not auto-included in Linux or Macintosh
+#if defined(linux) || defined(__APPLE_CC__) // For some reason, limits.h is not auto-included in Linux or Macintosh
   #include <limits.h>
 #endif // Linux or Macintosh
 
@@ -34,30 +34,15 @@
 #define False 0
 
 #undef byte                             /*Set 'byte' to 8-bits*/
-#if UCHAR_MAX == 0xff		            /*and verify 'char is 8-bits*/
-  typedef unsigned char byte;
-#else
-  #error 'byte', 'char' and 'bool' MUST be 8 bits!
-#endif
+typedef unsigned char byte;
 
 #undef bool                             /* Set 'bool' to 8-bits */
-#define bool byte		                /*Note: byte size is verified above*/
+#define bool byte
 
 #undef word                             /*Set 'word' to 16-bits*/
-#if USHRT_MAX == 0xffff
-  typedef unsigned short int word;
-#else
-  #error 'word' MUST be 16 bits!
-#endif
+typedef unsigned short int word;
 
-#if INT_MAX != 0x7fffffff               /*Verify 'int' is 32-bits*/
-  #if INT_MAX != 0xffffffff
-    #error 'int' MUST be 32 bits!
-  #endif
-#endif
-
-
-#ifdef LINUX
+#ifdef linux
   /* Linux-Only Types */
   #define STDAPI    uint8_t             /* define STDAPI */
 #endif /*Linux*/
