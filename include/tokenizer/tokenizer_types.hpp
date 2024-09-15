@@ -65,6 +65,7 @@
   #define STDAPI	bool
 #endif /*Macintosh*/
 
+#include "tokenizer/tokenizer_export.hpp"
 
 #define SymbolSize		      32		            // Maximum size of symbol (in characters)
 #define SymbolTableSize     1024                    // Maximum symbols allowed in symbol table (MUST BE POWER OF 2 FOR CalcSymbolHash TO WORK)
@@ -241,7 +242,7 @@ typedef enum TErrorCode {ecS,ecECS,ecETQ,ecUC,ecEHD,ecEBD,ecSETC,ecTME,ecCESD,ec
                          ecECCE,ecENEDODS,ecESTFPC,ecEACVOW,ecELIMBPBI,ecLOSELISWISE,ecELINAAE,ecNumElements} TErrorCode;
 
 /*Define symbol table structure*/
-struct TSymbolTable
+struct TOKENIZER_EXPORT TSymbolTable
 {
 /*32 bytes*/   char         Name[SymbolSize+1];
 /*4 bytes*/	   TElementType ElementType;
@@ -252,21 +253,21 @@ struct TSymbolTable
 };
 
 /*Define custom symbol structure*/
-struct TCustomSymbolTable
+struct TOKENIZER_EXPORT TCustomSymbolTable
 {
     int          Targets;  /*Or'd pattern represents stamps supporting this symbol. Bit1 = BS1, Bit2 = BS2, etc*/
     TSymbolTable Symbol;
 };
 
 /*Define undefined symbol table structure*/
-struct TUndefSymbolTable
+struct TOKENIZER_EXPORT TUndefSymbolTable
 {
 /*32 bytes*/    char         Name[SymbolSize+1];
 /*4 bytes*/     int          NextRecord;                       /*Next record ID if Symbol hash used more than once*/
 };
 
 /*Define element list structure*/
-struct TElementList
+struct TOKENIZER_EXPORT TElementList
 {
 /*4 bytes*/     TElementType ElementType;
 /*2 bytes*/ 	word         Value;
@@ -275,7 +276,7 @@ struct TElementList
 };
 
 /*Define source token crossreference structure*/
-struct TSrcTokReference
+struct TOKENIZER_EXPORT TSrcTokReference
 {
 /*2 bytes*/     word         SrcStart;
 /*2 bytes*/     word         TokStart;
@@ -283,7 +284,7 @@ struct TSrcTokReference
 
 
 /*Define Nesting Stack structure for FOR..NEXT, IF..THEN..ELSE..ENDIF, DO..LOOP and SELECT CASE*/
-struct TNestingStack
+struct TOKENIZER_EXPORT TNestingStack
 {
     TNestingType  NestType;                 /*The type (and mode for IF..THENs) of the current nested code block*/
     word          ElementIdx;               /*The element where the code block started (FOR, IF, DO, SELECT)*/
@@ -297,7 +298,7 @@ struct TNestingStack
 
 /*Define module compile object code type*/
 typedef byte   TPacketType[int(EEPROMSize/16*18)];
-struct TModuleRec
+struct TOKENIZER_EXPORT TModuleRec
 {
 /*1 byte*/		               bool         Succeeded;                  /*Pass or failed on compile*/
 /*4 bytes*/			           char         *Error;                     /*Error message if failed*/

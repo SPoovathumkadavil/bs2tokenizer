@@ -16,7 +16,7 @@ add_executable(tokenizer_test ${tokenizer_test_sources})
 target_link_libraries(tokenizer_test 
   PRIVATE
   GTest::gtest_main
-  tokenizer::tokenizer)
+  pbtokenizer::tokenizer)
 target_compile_features(tokenizer_test PRIVATE cxx_std_17)
 
 include(GoogleTest)
