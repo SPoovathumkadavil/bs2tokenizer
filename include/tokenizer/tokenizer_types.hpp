@@ -22,7 +22,8 @@
 /*                ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                          */
 /*************************************************************************************************************************************************/
 
-#pragma once
+#ifndef __TOKENIZER_TYPES_H_
+#define __TOKENIZER_TYPES_H_
 
 #if defined(LINUX) || defined(__APPLE_CC__) // For some reason, limits.h is not auto-included in Linux or Macintosh
   #include <limits.h>
@@ -1032,3 +1033,5 @@ namespace t_vars {
           {0xBE, /*1011 1110*/ { "CRSRX",      etConstant,      0x000E /*14*/}},
           {0xBE, /*1011 1110*/ { "CRSRY",      etConstant,      0x000F /*15*/}}};
 } // namespace t_vars
+
+#endif

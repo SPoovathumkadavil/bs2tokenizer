@@ -1,4 +1,6 @@
-#pragma once
+
+#ifndef __TOKENIZER_H_
+#define __TOKENIZER_H_
 
 #include "tokenizer/tokenizer_export.hpp"
 #include "tokenizer/tokenizer_types.hpp"  /* Make sure this is the last include! */
@@ -284,3 +286,5 @@ public:
   /*------------------------------------------------------------------------------*/
 
 }; // class Tokenizer
+
+#endif
