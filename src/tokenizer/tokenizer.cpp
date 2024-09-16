@@ -92,6 +92,49 @@
 
 #include "tokenizer/tokenizer.hpp"
 
+TModuleRec        *tzModuleRec;                         /*tzModuleRec is a pointer to an externally accessible structure*/
+char              *tzSource;                            /*tzSource is a pointer to an externally accessible byte array*/
+TSrcTokReference  *tzSrcTokReference;                   /*tzSrcTokReference is a pointer to an externally accessible Source vs. Token Reference array*/
+TSymbolTable      Symbol;
+TSymbolTable      Symbol2;
+TSymbolTable      SymbolTable[SymbolTableSize];
+int               SymbolVectors[SymbolTableSize];       /*Vectors used for hashing into Symbol Table*/
+int               SymbolTablePointer;
+TUndefSymbolTable UndefSymbolTable[SymbolTableSize];
+int               UndefSymbolVectors[SymbolTableSize];  /*Vectors used for hashing into Undefined Symbol Table.  Used to distinguish between undefined DEFINE'd symbols and undefined DATA, VAR, CON or PIN symbols*/
+int               UndefSymbolTablePointer;
+TElementList      ElementList[ElementListSize];
+word              ElementListIdx;
+word              ElementListEnd;
+word              EEPROMPointers[EEPROMSize*2];
+word              EEPROMIdx;
+word              GosubCount;
+word              PatchList[PatchListSize];
+int               PatchListIdx;
+TNestingStack     NestingStack[NestingStackSize];
+byte              NestingStackIdx;                      /*Index of next available nesting stack element*/
+byte              ForNextCount;                         /*Current count of Nested FOR..NEXT loops*/
+byte              IfThenCount;                          /*Current count of Nested IF THENs*/
+byte              DoLoopCount;                          /*Current count of Nested DO..LOOPs*/
+byte              SelectCount;                          /*Current count of Nested SELECT CASEs*/
+word              Expression[4][int(ExpressionSize / 16)]; /*4 arrays of (1 word size, N words data)*/
+byte              ExpressionStack[256];
+byte              ExpStackTop;
+byte              ExpStackBottom;
+byte              StackIdx;                             /*Run-time stack pointer*/
+byte              ParenCount;
+int               SrcIdx;                               /*Used by Element Engine*/
+word              StartOfSymbol;                        /*Used by Element Engine*/
+byte              CurChar;                              /*Used by Element Engine*/
+TElementType      ElementType = etUndef;                /*Used by Element Engine*/
+bool		      	   EndEntered;								           /*Used by Element Engine.  Indicates if End was just entered.*/
+bool              AllowStampDirective;                  /*Set by Compile routine*/
+byte              VarBitCount;                          /*# of var bits; used by variable parsing routines*/
+byte              VarBases[4];                          /*start of.. [0]=bits, [1]=nibbles, [2]=bytes, [3]=words*; used by variable parsing routines*/
+bool              Lang250;                              /*False = PBASIC 2.00, True = PBASIC 2.50*/
+int               SrcTokReferenceIdx;
+
+
 using namespace std;
 
 /*------------------------------------------------------------------------------*/
