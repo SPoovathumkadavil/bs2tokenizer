@@ -1062,7 +1062,8 @@ void tokenizer::InitializeRec(void)
   int  Idx;
 
   tzModuleRec->Error = NULL;                    /*Init Error string, Project Files array and TargetModule (if allowed)*/
-  for (Idx = 0; Idx <= (sizeof(tzModuleRec->ProjectFiles) / sizeof(char *)); Idx++)
+  int scomp = sizeof(tzModuleRec->ProjectFiles) / sizeof(char *);
+  for (Idx = 0; Idx < scomp; Idx++)
 	{
 	tzModuleRec->ProjectFiles[Idx] = NULL;
 	tzModuleRec->ProjectFilesStart[Idx] = 0;
