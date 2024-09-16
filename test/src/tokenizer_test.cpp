@@ -6,7 +6,8 @@
 
 TEST(TokenizerTests, CreateTokenizer)
 {
-  ASSERT_NO_THROW(tokenizer{});
+  tokenizer *t = new tokenizer;
+  TModuleRec *r = new TModuleRec;
 }
 
 int main(int argc, char** argv)

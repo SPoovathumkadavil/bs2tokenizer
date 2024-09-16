@@ -92,7 +92,6 @@
 
 #include "tokenizer/tokenizer.hpp"
 
-using namespace t_vars;
 using namespace std;
 
 /*------------------------------------------------------------------------------*/
