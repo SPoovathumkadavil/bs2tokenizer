@@ -25,9 +25,9 @@
 #ifndef __TOKENIZER_TYPES_H_
 #define __TOKENIZER_TYPES_H_
 
-#if defined(linux) || defined(__APPLE_CC__) // For some reason, limits.h is not auto-included in Linux or Macintosh
-  #include <limits.h>
-#endif // Linux or Macintosh
+#include <limits.h>
+#include <cstdint>
+
 
 /* Simple Defines */
 #define True  1
@@ -42,14 +42,7 @@ typedef unsigned char byte;
 #undef word                             /*Set 'word' to 16-bits*/
 typedef unsigned short int word;
 
-#ifdef linux
-  /* Linux-Only Types */
-  #define STDAPI    uint8_t             /* define STDAPI */
-#endif /*Linux*/
-
-#ifdef __APPLE_CC__
-  #define STDAPI	bool
-#endif /*Macintosh*/
+#define STDAPI    uint8_t             /* define STDAPI */
 
 #include "tokenizer/tokenizer_export.hpp"
 

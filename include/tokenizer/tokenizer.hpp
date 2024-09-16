@@ -1,6 +1,6 @@
 
-#ifndef __TOKENIZER_H_
-#define __TOKENIZER_H_
+#ifndef __TOKENIZER_H__
+#define __TOKENIZER_H__
 
 #include "tokenizer/tokenizer_export.hpp"
 #include "tokenizer/tokenizer_types.hpp"  /* Make sure this is the last include! */

@@ -81,18 +81,13 @@
   #include "tokenizer.h"
   #include "tokenizer_i.c"
 #endif
-#ifdef linux
-  #include <unistd.h>
-  #include <stdio.h>
-  #include <stdint.h>
-  #include <string.h>
-  #include <dlfcn.h>
-  #include <ctype.h>
-#endif
-#ifdef __APPLE_CC__
-  #include <string.h>
-  #include <ctype.h>
-#endif
+
+#include <unistd.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <dlfcn.h>
+#include <ctype.h>
 #include <stdlib.h>
 
 #include "tokenizer/tokenizer.hpp"
