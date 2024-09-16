@@ -1062,7 +1062,11 @@ void tokenizer::InitializeRec(void)
   int  Idx;
 
   tzModuleRec->Error = NULL;                    /*Init Error string, Project Files array and TargetModule (if allowed)*/
+  
   int scomp = sizeof(tzModuleRec->ProjectFiles) / sizeof(char *);
+
+  printf("-- SCOMP: %i", scomp);
+  
   for (Idx = 0; Idx < scomp; Idx++)
 	{
 	tzModuleRec->ProjectFiles[Idx] = NULL;
